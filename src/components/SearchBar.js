@@ -1,36 +1,42 @@
-import React from "react";
+import React from 'react';
 
-function SearchBar() {
+function SearchBar({ setSortBy, setFilterBy }) {
+  function handleSort(e) {
+    setSortBy(e.target.value);
+  }
+  function handleFilter(e) {
+    setFilterBy(e.target.value);
+  }
   return (
     <div>
       <strong>Sort by:</strong>
       <label>
         <input
-          type="radio"
-          value="Alphabetically"
-          name="sort"
+          type='radio'
+          value='Alphabetically'
+          name='sort'
           checked={null}
-          onChange={null}
+          onChange={handleSort}
         />
         Alphabetically
       </label>
       <label>
         <input
-          type="radio"
-          value="Price"
-          name="sort"
+          type='radio'
+          value='Price'
+          name='sort'
           checked={null}
-          onChange={null}
+          onChange={handleSort}
         />
         Price
       </label>
       <br />
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
-          <option value="Tech">Tech</option>
-          <option value="Sportswear">Sportswear</option>
-          <option value="Finance">Finance</option>
+        <select onChange={handleFilter}>
+          <option value='Tech'>Tech</option>
+          <option value='Sportswear'>Sportswear</option>
+          <option value='Finance'>Finance</option>
         </select>
       </label>
     </div>
